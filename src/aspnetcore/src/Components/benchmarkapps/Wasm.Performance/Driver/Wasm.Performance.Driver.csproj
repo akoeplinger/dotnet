@@ -8,8 +8,8 @@
     <!-- WebDriver is not strong-named, so this test project cannot be strong named either. -->
     <SignAssembly>false</SignAssembly>
     <IsTestAssetProject>true</IsTestAssetProject>
-    <RuntimeIdentifier Condition=" '$(DotNetBuildFromSource)' != 'true' ">linux-x64</RuntimeIdentifier>
-    <SelfContained Condition=" '$(DotNetBuildFromSource)' != 'true' ">true</SelfContained>
+    <RuntimeIdentifier Condition=" '$(IGNORE)' != 'true' ">linux-x64</RuntimeIdentifier>
+    <SelfContained Condition=" '$(IGNORE)' != 'true' ">true</SelfContained>
     <Nullable>annotations</Nullable>
   </PropertyGroup>
 

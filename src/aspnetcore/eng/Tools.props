@@ -1,5 +1,5 @@
 <Project>
-  <ItemGroup Condition=" '$(DotNetBuildFromSource)' != 'true' ">
+  <ItemGroup Condition=" '$(IGNORE)' != 'true' ">
     <!--
       This is here to workaround flakiness in the NuGet SDK resolver in MSBuild. Arcade will run a pre-restore for
       these packages. This works more consistently than the SDK resolution which uses global.json. Without this

@@ -82,7 +82,7 @@
     -->
     <MicrosoftCodeAnalysisVersion_4_4>4.4.0</MicrosoftCodeAnalysisVersion_4_4>
     <MicrosoftCodeAnalysisVersion_LatestVS>4.4.0</MicrosoftCodeAnalysisVersion_LatestVS>
-    <MicrosoftCodeAnalysisVersion_LatestVS Condition="'$(DotNetBuildFromSource)' == 'true'">$(MicrosoftCodeAnalysisVersion)</MicrosoftCodeAnalysisVersion_LatestVS>
+    <MicrosoftCodeAnalysisVersion_LatestVS Condition="'$(IGNORE)' == 'true'">$(MicrosoftCodeAnalysisVersion)</MicrosoftCodeAnalysisVersion_LatestVS>
     <MicrosoftCodeAnalysisAnalyzersVersion>3.3.5-beta1.23124.1</MicrosoftCodeAnalysisAnalyzersVersion>
     <MicrosoftCodeAnalysisNetAnalyzersVersion>8.0.0-preview1.23124.1</MicrosoftCodeAnalysisNetAnalyzersVersion>
     <!--

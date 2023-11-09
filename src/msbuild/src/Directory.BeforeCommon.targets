@@ -69,7 +69,7 @@
     <FeatureXamlTypes>true</FeatureXamlTypes>
     <DefineConstants Condition="'$(MonoBuild)' != 'true'">$(DefineConstants);FEATURE_XML_SCHEMA_VALIDATION</DefineConstants>
     <DefineConstants Condition="'$(MachineIndependentBuild)' != 'true'">$(DefineConstants);FEATURE_WIN32_REGISTRY</DefineConstants>
-    <DefineConstants Condition="'$(MonoBuild)' != 'true' and '$(MachineIndependentBuild)' != 'true' and '$(TargetFrameworkVersion)' != 'v3.5' and '$(DotNetBuildFromSource)' != 'true'">$(DefineConstants);FEATURE_VISUALSTUDIOSETUP</DefineConstants>
+    <DefineConstants Condition="'$(MonoBuild)' != 'true' and '$(MachineIndependentBuild)' != 'true' and '$(TargetFrameworkVersion)' != 'v3.5' and '$(IGNORE)' != 'true'">$(DefineConstants);FEATURE_VISUALSTUDIOSETUP</DefineConstants>
     <DefineConstants>$(DefineConstants);FEATURE_MSCOREE</DefineConstants>
   </PropertyGroup>
 
@@ -112,7 +112,7 @@
     <DocumentationFile Condition=" '$(GenerateDocumentationFile)' == 'true' ">$(IntermediateOutputPath)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(MonoBuild)' != 'true' and '$(DotNetBuildFromSource)' != 'true' and $([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)')) == '.NETFramework'">
+  <PropertyGroup Condition="'$(MonoBuild)' != 'true' and '$(IGNORE)' != 'true' and $([MSBuild]::GetTargetFrameworkIdentifier('$(TargetFramework)')) == '.NETFramework'">
     <DefineConstants>$(DefineConstants);FEATURE_MSIOREDIST</DefineConstants>
     <FeatureMSIORedist>true</FeatureMSIORedist>
   </PropertyGroup>

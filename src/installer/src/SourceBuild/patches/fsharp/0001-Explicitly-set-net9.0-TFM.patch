@@ -68,7 +68,7 @@ index 46ffb722c..9d391689d 100644
 -    <TargetFramework>net8.0</TargetFramework>
 +    <TargetFramework>net9.0</TargetFramework>
      <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
-     <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+     <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
    </PropertyGroup>
 diff --git a/buildtools/checkpackages/FSharp.Compiler.Service_notshipped.fsproj b/buildtools/checkpackages/FSharp.Compiler.Service_notshipped.fsproj
 index 514b1f4dd..d3df3b688 100644
@@ -94,7 +94,7 @@ index 674dde7c7..8764e40e1 100644
 -    <TargetFramework>net8.0</TargetFramework>
 +    <TargetFramework>net9.0</TargetFramework>
      <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
-     <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+     <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
      <RollForward Condition="'$(BUILDING_USING_DOTNET)' == 'true'">LatestMajor</RollForward>
 diff --git a/buildtools/fsyacc/fsyacc.fsproj b/buildtools/fsyacc/fsyacc.fsproj
 index fc072b7cf..4110186e5 100644
@@ -107,7 +107,7 @@ index fc072b7cf..4110186e5 100644
 -    <TargetFramework>net8.0</TargetFramework>
 +    <TargetFramework>net9.0</TargetFramework>
      <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
-     <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+     <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
      <RollForward Condition="'$(BUILDING_USING_DOTNET)' == 'true'">LatestMajor</RollForward>
 diff --git a/eng/build.sh b/eng/build.sh
 index 3b992d6bf..3a4444081 100755

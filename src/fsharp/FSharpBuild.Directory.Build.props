@@ -75,7 +75,7 @@
   </PropertyGroup>
 
   <!-- source build -->
-  <PropertyGroup Condition="'$(DotNetBuildFromSource)' == 'true' OR '$(ArcadeBuildFromSource)' == 'true'">
+  <PropertyGroup Condition="'$(IGNORE)' == 'true' OR '$(ArcadeBuildFromSource)' == 'true'">
     <PublishWindowsPdb>false</PublishWindowsPdb>
   </PropertyGroup>
 

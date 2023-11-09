@@ -37,7 +37,7 @@
       <_AfterSourceBuildProperties Include="CurrentRepoSourceBuildArtifactsPackagesDir=$(ProjectRoot)artifacts/nupkgs/" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(DotNetBuildFromSourceFlavor)' != 'Product'">
+    <ItemGroup Condition="'$(IGNORE)' != 'Product'">
       <_AfterSourceBuildProperties Include="FailOnPrebuiltBaselineError=true" />
     </ItemGroup>
 
@@ -51,15 +51,15 @@
     <Message Text="Running source-build InnerBuild target" Importance="High" />
 
     <MSBuild Projects="$(ProjectRoot)build/build.proj"
-             Properties="Configuration=$(BuildConfiguration);DotNetBuildFromSource=true"
+             Properties="Configuration=$(BuildConfiguration);IGNORE=true"
              Targets="RestoreXPlat" />
 
     <MSBuild Projects="$(ProjectRoot)build/build.proj"
-             Properties="Configuration=$(BuildConfiguration);DotNetBuildFromSource=true"
+             Properties="Configuration=$(BuildConfiguration);IGNORE=true"
              Targets="BuildXPlat" />
 
     <MSBuild Projects="$(ProjectRoot)build/build.proj"
-             Properties="Configuration=$(BuildConfiguration);DotNetBuildFromSource=true"
+             Properties="Configuration=$(BuildConfiguration);IGNORE=true"
              Targets="PackXPlat" />
 
   </Target>

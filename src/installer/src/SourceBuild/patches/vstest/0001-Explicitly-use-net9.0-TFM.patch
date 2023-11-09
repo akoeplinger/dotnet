@@ -16,7 +16,7 @@ index b720568b..617ca4fc 100644
 +++ b/Directory.Build.targets
 @@ -6,7 +6,7 @@
    <!-- Source build properties -->
-   <PropertyGroup Condition=" '$(DotNetBuildFromSource)' == 'true' ">
+   <PropertyGroup Condition=" '$(IGNORE)' == 'true' ">
      <!-- Force setting TargetFrameworks to net7.0 only if it was set -->
 -    <TargetFrameworks Condition=" '$(TargetFrameworks)' != '' ">$(NetCurrent)</TargetFrameworks>
 +    <TargetFrameworks Condition=" '$(TargetFrameworks)' != '' ">net9.0</TargetFrameworks>
@@ -29,7 +29,7 @@ index a93852ce..945b1ac2 100644
 +++ b/src/Microsoft.TestPlatform.Build/Microsoft.TestPlatform.Build.csproj
 @@ -12,7 +12,7 @@
    <Choose>
-     <When Condition=" '$(DotNetBuildFromSource)' == 'true' ">
+     <When Condition=" '$(IGNORE)' == 'true' ">
        <PropertyGroup>
 -        <Tfm>$(NetCurrent)</Tfm>
 +        <Tfm>net9.0</Tfm>

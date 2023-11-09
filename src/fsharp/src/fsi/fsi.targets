@@ -17,7 +17,7 @@
     <Win32Resource>$(MSBuildThisFileDirectory)fsi.res</Win32Resource>
     <NGenBinary>true</NGenBinary>
     <UseAppHost>true</UseAppHost>
-    <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+    <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net472'">

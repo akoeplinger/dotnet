@@ -23,14 +23,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Humanizer.Core" Version="$(HumanizerCoreVersion)" PrivateAssets="compile" />
-    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="$(SQLitePCLRawbundle_greenVersion)" PrivateAssets="all" Condition="'$(DotNetBuildFromSource)' != 'true'" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="$(SQLitePCLRawbundle_greenVersion)" PrivateAssets="all" Condition="'$(IGNORE)' != 'true'" />
     <PackageReference Include="System.Composition" Version="$(SystemCompositionVersion)" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="$(MicrosoftBclAsyncInterfacesVersion)" />
     <PackageReference Include="System.IO.Pipelines" Version="$(SystemIOPipelinesVersion)" />
     <PackageReference Include="System.Threading.Channels" Version="$(SystemThreadingChannelsVersion)" />
   </ItemGroup>
   <ItemGroup Label="Linked Files">
-    <Compile Remove="Storage\SQLite\**\*.cs" Condition="'$(DotNetBuildFromSource)' == 'true'" />
+    <Compile Remove="Storage\SQLite\**\*.cs" Condition="'$(IGNORE)' == 'true'" />
     <Compile Include="..\..\..\Compilers\Core\Portable\DiagnosticAnalyzer\AnalyzerAssemblyLoader.cs" Link="Diagnostics\CompilerShared\AnalyzerAssemblyLoader.cs" />
     <Compile Include="..\..\..\Compilers\Core\Portable\DiagnosticAnalyzer\AnalyzerAssemblyLoader.Core.cs" Link="Diagnostics\CompilerShared\AnalyzerAssemblyLoader.Core.cs" />
     <Compile Include="..\..\..\Compilers\Core\Portable\DiagnosticAnalyzer\AnalyzerAssemblyLoader.Desktop.cs" Link="Diagnostics\CompilerShared\AnalyzerAssemblyLoader.Desktop.cs" />

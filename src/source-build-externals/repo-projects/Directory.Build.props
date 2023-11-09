@@ -34,7 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EnvironmentVariables Include="DotNetBuildFromSource=true" />
+    <!--<EnvironmentVariables Include="IGNORE=true" />-->
     <EnvironmentVariables Include="DotNetPackageVersionPropsPath=$(PackageVersionPropsPath)" />
     <EnvironmentVariables Include="DotNetRestorePackagesPath=$(PackagesDir)" />
 

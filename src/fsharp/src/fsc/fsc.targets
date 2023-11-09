@@ -17,7 +17,7 @@
     <AllowCrossTargeting>true</AllowCrossTargeting>
     <NGenBinary>true</NGenBinary>
     <UseAppHost>true</UseAppHost>
-    <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+    <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
   </PropertyGroup>
 
   <!--  The fsc application does not provide a referencable public interface  -->

@@ -114,7 +114,7 @@
     <InternalsVisibleTo Include="Microsoft.CodeAnalysis.LanguageServer" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="SymbolSearch\Windows\**\*.cs" Condition="'$(DotNetBuildFromSource)' == 'true'" />
+    <Compile Remove="SymbolSearch\Windows\**\*.cs" Condition="'$(IGNORE)' == 'true'" />
     <Compile Include="..\..\..\Compilers\Core\Portable\PEWriter\CompilationOptionNames.cs" Link="PdbSourceDocument\CompilationOptionNames.cs" />
     <Compile Include="..\..\..\Compilers\Core\Portable\Text\TextUtilities.cs" Link="Shared\Utilities\TextUtilities.cs" />
   </ItemGroup>
@@ -136,7 +136,7 @@
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="$(SystemThreadingTasksExtensionsVersion)" Condition="'$(TargetFrameworkIdentifier)' != '.NETCoreApp'" />
     <PackageReference Include="Microsoft.DiaSymReader" Version="$(MicrosoftDiaSymReaderVersion)" />
     <PackageReference Include="Microsoft.CodeAnalysis.AnalyzerUtilities" Version="$(MicrosoftCodeAnalysisAnalyzerUtilitiesVersion)" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Elfie" Version="$(MicrosoftCodeAnalysisElfieVersion)" Condition="'$(DotNetBuildFromSource)' != 'true'" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Elfie" Version="$(MicrosoftCodeAnalysisElfieVersion)" Condition="'$(IGNORE)' != 'true'" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DocumentationComments\CodeFixes\" />

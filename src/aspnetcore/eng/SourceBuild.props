@@ -45,7 +45,8 @@
     <ItemGroup>
       <!-- We need to flow FullAssemblySigningSupported even when building repo tasks because they use full signing -->
       <InnerBuildEnv Condition="'$(FullAssemblySigningSupported)' != ''" Include="FullAssemblySigningSupported=$(FullAssemblySigningSupported)" />
-      <InnerBuildEnv Include="DotNetBuildFromSource=true" />
+      <!-- TODO: check if this works -->
+      <!--<InnerBuildEnv Include="IGNORE=true" />-->
     </ItemGroup>
 
     <!-- Call the build.sh script to build the repo tasks. Set IgnoreStandardErrorWarningFormat

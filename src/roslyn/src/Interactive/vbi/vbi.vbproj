@@ -6,7 +6,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>Sub Main</StartupObject>
     <TargetFrameworks>$(SourceBuildToolsetTargetFrameworks);net472</TargetFrameworks>
-    <UseAppHost Condition="'$(DotNetBuildFromSource)' == 'true'">false</UseAppHost>
+    <UseAppHost Condition="'$(IGNORE)' == 'true'">false</UseAppHost>
     <RootNamespace></RootNamespace>
     <IsShipping>false</IsShipping>
   </PropertyGroup>

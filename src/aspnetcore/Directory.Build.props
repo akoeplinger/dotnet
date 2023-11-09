@@ -203,7 +203,7 @@
       to restore the AppHost pack as a prebuilt rather than using the one that's present in the SDK.
       Source-build doesn't run tests, so the property is simply conditioned out.
     -->
-    <NetCoreTargetingPackRoot Condition="'$(DotNetBuildFromSource)' != 'true'">$(LocalDotNetRoot)packs\</NetCoreTargetingPackRoot>
+    <NetCoreTargetingPackRoot Condition="'$(IGNORE)' != 'true'">$(LocalDotNetRoot)packs\</NetCoreTargetingPackRoot>
   </PropertyGroup>
 
   <Import Project="eng\tools\RepoTasks\RepoTasks.tasks" Condition="'$(MSBuildProjectName)' != 'RepoTasks' AND '$(DesignTimeBuild)' != 'true'" />

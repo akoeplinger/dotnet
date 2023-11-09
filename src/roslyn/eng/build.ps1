@@ -250,8 +250,8 @@ function BuildSolution() {
   # Workaround for some machines in the AzDO pool not allowing long paths (%5c is msbuild escaped backslash)
   $ibcDir = Join-Path $RepoRoot ".o%5c"
 
-  # Set DotNetBuildFromSource to 'true' if we're simulating building for source-build.
-  $buildFromSource = if ($sourceBuild) { "/p:DotNetBuildFromSource=true" } else { "" }
+  # Set IGNORE to 'true' if we're simulating building for source-build.
+  $buildFromSource = if ($sourceBuild) { "/p:IGNORE=true" } else { "" }
 
   $generateDocumentationFile = if ($skipDocumentation) { "/p:GenerateDocumentationFile=false" } else { "" }
   $roslynUseHardLinks = if ($ci) { "/p:ROSLYNUSEHARDLINKS=true" } else { "" }

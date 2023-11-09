@@ -20,7 +20,7 @@
 
   <PropertyGroup>
     <EnableCustomReferenceResolution
-      Condition="'$(EnableCustomReferenceResolution)' == '' AND ('$(DotNetBuildFromSource)' != 'true' OR '$(ExcludeFromSourceBuild)' != 'true')">true</EnableCustomReferenceResolution>
+      Condition="'$(EnableCustomReferenceResolution)' == '' AND ('$(IGNORE)' != 'true' OR '$(ExcludeFromSourceBuild)' != 'true')">true</EnableCustomReferenceResolution>
 
     <ResolveReferencesDependsOn>
       ResolveCustomReferences;

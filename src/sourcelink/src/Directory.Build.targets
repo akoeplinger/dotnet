@@ -3,7 +3,7 @@
 
   <!-- TODO: Remove when Arcade offers an in-built way to filter out anything other than NetCurrent: https://github.com/dotnet/arcade/issues/13390. -->
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(TargetFrameworks)' != '' and '$(DotNetBuildFromSource)' == 'true'">$(NetCurrent)</TargetFrameworks>
+    <TargetFrameworks Condition="'$(TargetFrameworks)' != '' and '$(IGNORE)' == 'true'">$(NetCurrent)</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(IsTestProject)' == 'true'">
@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <NuspecProperty Include="DesktopTfm=net472"/>
-    <NuspecProperty Include="CoreTfm=$(NetCurrent)" Condition="'$(DotNetBuildFromSource)' == 'true'"/>
-    <NuspecProperty Include="CoreTfm=$(NetMinimum)" Condition="'$(DotNetBuildFromSource)' != 'true'"/>
+    <NuspecProperty Include="CoreTfm=$(NetCurrent)" Condition="'$(IGNORE)' == 'true'"/>
+    <NuspecProperty Include="CoreTfm=$(NetMinimum)" Condition="'$(IGNORE)' != 'true'"/>
   </ItemGroup>
 
   <!-- 

@@ -72,7 +72,7 @@
       OutputBaselineFile="$(SourceBuildSelfPrebuiltReportDir)generated-new-baseline.xml"
       OutputReportFile="$(SourceBuildSelfPrebuiltReportDir)baseline-comparison.xml"
       ContinueOnError="$(ContinueOnPrebuiltBaselineError)"
-      Condition="'$(DotNetBuildFromSourceFlavor)' != 'Product'" />
+      Condition="'$(IGNOREFlavor)' != 'Product'" />
   </Target>
 
   <!--

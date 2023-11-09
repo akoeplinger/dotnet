@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <!-- use the source-built version of the reference packs if building in source-build -->
-  <ItemGroup Condition="'$(DotNetBuildFromSource)' == 'true'">
+  <ItemGroup Condition="'$(IGNORE)' == 'true'">
     <KnownFrameworkReference Update="Microsoft.NETCore.App">
       <TargetingPackVersion Condition="'%(TargetFramework)' == 'net6.0'">6.0.0</TargetingPackVersion>
     </KnownFrameworkReference>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <!-- do not restore or use the 6.0 app host in source-build -->
-  <PropertyGroup Condition="'$(DotNetBuildFromSource)' == 'true'">
+  <PropertyGroup Condition="'$(IGNORE)' == 'true'">
     <UseAppHost>false</UseAppHost>
   </PropertyGroup>
 

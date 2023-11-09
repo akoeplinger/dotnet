@@ -275,7 +275,7 @@ function BuildSolution([string] $solutionName, $nopack) {
         /p:QuietRestore=$quietRestore `
         /p:QuietRestoreBinaryLog=$binaryLog `
         /p:TestTargetFrameworks=$testTargetFrameworks `
-        /p:DotNetBuildFromSource=$sourceBuild `
+        /p:IGNORE=$sourceBuild `
         /p:CompressAllMetadata=$CompressAllMetadata `
         /v:$verbosity `
         $suppressExtensionDeployment `

@@ -22,7 +22,7 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(DotNetBuildFromSource)' != 'true'">
+  <ItemGroup Condition="'$(IGNORE)' != 'true'">
     <Compile Include="$(SharedSourceRoot)HttpSys\**\*.cs" />
     <Compile Include="$(SharedSourceRoot)Buffers.MemoryPool\*.cs" LinkBase="MemoryPool" />
     <Compile Include="$(SharedSourceRoot)ServerInfrastructure\StringUtilities.cs" LinkBase="ServerInfrastructure\StringUtilities.cs" />
@@ -30,7 +30,7 @@
     <Compile Include="$(SharedSourceRoot)TaskToApm.cs" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(DotNetBuildFromSource)' == 'true'">
+  <ItemGroup Condition="'$(IGNORE)' == 'true'">
     <Compile Remove="**\*.cs" />
   </ItemGroup>
 
@@ -39,7 +39,7 @@
     <Reference Include="Microsoft.AspNetCore.Connections.Abstractions" />
     <Reference Include="Microsoft.AspNetCore.Hosting" />
     <Reference Include="Microsoft.Net.Http.Headers" />
-    <Reference Include="Microsoft.Windows.CsWin32" Condition="'$(DotNetBuildFromSource)' != 'true'">
+    <Reference Include="Microsoft.Windows.CsWin32" Condition="'$(IGNORE)' != 'true'">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </Reference>

@@ -143,7 +143,7 @@
                           $(RepoRoot)src\Components\WebAssembly\WebAssembly.Authentication\src\Microsoft.AspNetCore.Components.WebAssembly.Authentication.csproj;
                           "
                         Exclude="@(ProjectToExclude)" />
-        <ProjectToExclude Condition=" '$(DotNetBuildFromSource)' == 'true'" Include="@(YarnMSBuildProjects)" />
+        <ProjectToExclude Condition=" '$(IGNORE)' == 'true'" Include="@(YarnMSBuildProjects)" />
 
         <JavaProjects Include="$(RepoRoot)src\SignalR\**\*.javaproj"
                       Exclude="@(ProjectToExclude)" />

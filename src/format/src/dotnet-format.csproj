@@ -22,7 +22,7 @@
       These identifiers are for generating the shim'd core executables for signing. Not all options
       from $(RoslynPortableRuntimeIdentifiers) work or make sense in this context.
     -->
-    <PackAsToolShimRuntimeIdentifiers Condition=" '$(DotnetBuildFromSource)' != 'true' ">win-x64;win-x86;osx-x64</PackAsToolShimRuntimeIdentifiers>
+    <PackAsToolShimRuntimeIdentifiers Condition=" '$(IGNORE)' != 'true' ">win-x64;win-x86;osx-x64</PackAsToolShimRuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>

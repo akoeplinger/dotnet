@@ -243,7 +243,7 @@
         - AspNetCore.App.Runtime (when BundleRuntimePacks)
       -->
       <NetCoreAppHostRids
-        Condition="'$(DotNetBuildFromSource)' == 'true'"
+        Condition="'$(IGNORE)' == 'true'"
         Include="$(ProductMonikerRid)" />
 
       <NetCoreRuntimePackRids
@@ -374,10 +374,10 @@
       <WindowsDesktopRuntimePackRids Include="@(WindowsDesktop50RuntimePackRids)" />
 
       <_KnownRuntimeIdentiferPlatforms Include="any;aot;freebsd;illumos;solaris;unix" />
-      <_ExcludedKnownRuntimeIdentiferPlatforms Include="rhel.6;tizen.4.0.0;tizen.5.0.0" Condition="'$(DotNetBuildFromSource)' != 'true'" />
-      <_ExcludedKnownRuntimeIdentiferPlatforms Include="rhel.6" Condition="'$(DotNetBuildFromSource)' == 'true' and !$(ProductMonikerRid.StartsWith('rhel.6-'))" />
-      <_ExcludedKnownRuntimeIdentiferPlatforms Include="tizen.4.0.0" Condition="'$(DotNetBuildFromSource)' == 'true' and !$(ProductMonikerRid.StartsWith('tizen.4.0.0-'))" />
-      <_ExcludedKnownRuntimeIdentiferPlatforms Include="tizen.5.0.0" Condition="'$(DotNetBuildFromSource)' == 'true' and !$(ProductMonikerRid.StartsWith('tizen.5.0.0-'))" />
+      <_ExcludedKnownRuntimeIdentiferPlatforms Include="rhel.6;tizen.4.0.0;tizen.5.0.0" Condition="'$(IGNORE)' != 'true'" />
+      <_ExcludedKnownRuntimeIdentiferPlatforms Include="rhel.6" Condition="'$(IGNORE)' == 'true' and !$(ProductMonikerRid.StartsWith('rhel.6-'))" />
+      <_ExcludedKnownRuntimeIdentiferPlatforms Include="tizen.4.0.0" Condition="'$(IGNORE)' == 'true' and !$(ProductMonikerRid.StartsWith('tizen.4.0.0-'))" />
+      <_ExcludedKnownRuntimeIdentiferPlatforms Include="tizen.5.0.0" Condition="'$(IGNORE)' == 'true' and !$(ProductMonikerRid.StartsWith('tizen.5.0.0-'))" />
     </ItemGroup>
 
     <!--

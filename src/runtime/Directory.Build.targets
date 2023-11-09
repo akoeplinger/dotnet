@@ -21,7 +21,7 @@
   When .NET gets built from source, make the SDK aware there are bootstrap packages
   for Microsoft.NETCore.App.Runtime.<rid> and Microsoft.NETCore.App.Crossgen2.<rid>.
   -->
-  <ItemGroup Condition="'$(DotNetBuildFromSource)' == 'true'">
+  <ItemGroup Condition="'$(IGNORE)' == 'true'">
     <KnownFrameworkReference Update="@(KnownFrameworkReference->WithMetadataValue('Identity', 'Microsoft.NETCore.App')->WithMetadataValue('TargetFramework', '$(NetCoreAppCurrent)'))">
       <RuntimePackRuntimeIdentifiers>$(PackageRID)</RuntimePackRuntimeIdentifiers>
     </KnownFrameworkReference>

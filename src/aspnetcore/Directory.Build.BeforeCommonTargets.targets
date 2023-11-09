@@ -4,7 +4,7 @@
     <!-- Analyzer package are needed in source build for WebSDK -->
     <ExcludeFromSourceBuild
         Condition="'$(ExcludeFromSourceBuild)' == '' and
-            '$(DotNetBuildFromSource)' == 'true' and
+            '$(IGNORE)' == 'true' and
             '$(IsAspNetCoreApp)' != 'true' and
             '$(MSBuildProjectName)' != '$(TargetingPackName)' and
             '$(IsAnalyzersProject)' != 'true' and

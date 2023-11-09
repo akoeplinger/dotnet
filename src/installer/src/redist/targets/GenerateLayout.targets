@@ -9,16 +9,16 @@
     <!-- Blob storage directories are not stabilized, so these must refer to a package that does not stabilize -->
     <!-- In source build, the layout does match, so use the runtime package versions rather than the VS redist versions -->
     <AspNetCoreBlobVersion>$(VSRedistCommonAspNetCoreSharedFrameworkx6490PackageVersion)</AspNetCoreBlobVersion>
-    <AspNetCoreBlobVersion Condition=" '$(DotNetBuildFromSource)' == 'true' and '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(MicrosoftAspNetCoreAppRuntimePackageVersion)</AspNetCoreBlobVersion>
+    <AspNetCoreBlobVersion Condition=" '$(IGNORE)' == 'true' and '$(IGNOREFlavor)' == 'Product' ">$(MicrosoftAspNetCoreAppRuntimePackageVersion)</AspNetCoreBlobVersion>
 
     <CoreSetupBlobVersion>$(VSRedistCommonNetCoreSharedFrameworkx6490PackageVersion)</CoreSetupBlobVersion>
-    <CoreSetupBlobVersion Condition=" '$(DotNetBuildFromSource)' == 'true' and '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(MicrosoftNETCoreAppRuntimePackageVersion)</CoreSetupBlobVersion>
+    <CoreSetupBlobVersion Condition=" '$(IGNORE)' == 'true' and '$(IGNOREFlavor)' == 'Product' ">$(MicrosoftNETCoreAppRuntimePackageVersion)</CoreSetupBlobVersion>
 
     <WindowsDesktopBlobVersion>$(VSRedistCommonWindowsDesktopSharedFrameworkx6490PackageVersion)</WindowsDesktopBlobVersion>
 
     <!-- Because the ref packs are not serviced in every build, the blob location may vary -->
     <!-- Note that there may need to be a tweak for source build if we rev the targeting pack, something of the form
-         <NETCoreAppTargetingPackBlobVersion Condition=" '$(DotNetBuildFromSource)' == 'true' and '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(CoreSetupBlobVersion)</NETCoreAppTargetingPackBlobVersion>
+         <NETCoreAppTargetingPackBlobVersion Condition=" '$(IGNORE)' == 'true' and '$(IGNOREFlavor)' == 'Product' ">$(CoreSetupBlobVersion)</NETCoreAppTargetingPackBlobVersion>
     -->
     <NETCoreAppTargetingPackBlobVersion>$(VSRedistCommonNetCoreTargetingPackx6490PackageVersion)</NETCoreAppTargetingPackBlobVersion>
 
@@ -37,7 +37,7 @@
       <PublicBaseURL Condition="'$(PublicBaseURL)' == ''">https://dotnetcli.blob.core.windows.net/dotnet/</PublicBaseURL>
 
       <CoreSetupRid Condition="'$(CoreSetupRid)' == ''">$(HostRid)</CoreSetupRid>
-      <CoreSetupRid Condition=" ('$(OSName)' == 'win' or '$(OSName)' == 'osx' or '$(OSName)' == 'freebsd') and '$(DotNetBuildFromSource)' != 'true' ">$(OSName)-$(Architecture)</CoreSetupRid>
+      <CoreSetupRid Condition=" ('$(OSName)' == 'win' or '$(OSName)' == 'osx' or '$(OSName)' == 'freebsd') and '$(IGNORE)' != 'true' ">$(OSName)-$(Architecture)</CoreSetupRid>
       <CoreSetupRid Condition="'$(DotNetBuildVertical)' != 'true' and $(HostRid.StartsWith('mariner.2.0'))">$(HostRid.Replace('mariner.2.0', 'cm.2'))</CoreSetupRid>
 
       <!-- only the runtime OSX .pkgs have a `-internal` suffix -->
@@ -85,7 +85,7 @@
       <WinFormsAndWpfSharedFxArchiveFileName>windowsdesktop-runtime-$(MicrosoftWindowsDesktopAppRuntimePackageVersion)-$(SharedFrameworkRid)$(ArchiveExtension)</WinFormsAndWpfSharedFxArchiveFileName>
 
       <Crossgen2Rid>$(HostOSName)-$(BuildArchitecture)</Crossgen2Rid>
-      <Crossgen2Rid Condition="'$(DotNetBuildFromSource)' == 'true'">$(SharedFrameworkRid)</Crossgen2Rid>
+      <Crossgen2Rid Condition="'$(IGNORE)' == 'true'">$(SharedFrameworkRid)</Crossgen2Rid>
 
       <AspNetCoreInstallerRid Condition="'$(AspNetCoreInstallerRid)' == ''">$(SharedFrameworkRid)</AspNetCoreInstallerRid>
       <AspNetCoreInstallerRid Condition="'$(SharedFrameworkRid)' == 'rhel.6-x64'">linux-x64</AspNetCoreInstallerRid>
@@ -108,9 +108,9 @@
 
     <PropertyGroup>
       <CoreSetupRootUrl>$(PublicBaseURL)Runtime/</CoreSetupRootUrl>
-      <CoreSetupRootUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(PublicBaseURL)</CoreSetupRootUrl>
+      <CoreSetupRootUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(PublicBaseURL)</CoreSetupRootUrl>
       <AspNetCoreSharedFxRootUrl>$(PublicBaseURL)aspnetcore/Runtime/</AspNetCoreSharedFxRootUrl>
-      <AspNetCoreSharedFxRootUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(PublicBaseURL)</AspNetCoreSharedFxRootUrl>
+      <AspNetCoreSharedFxRootUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(PublicBaseURL)</AspNetCoreSharedFxRootUrl>
       <WinFormsAndWpfSharedFxRootUrl>$(PublicBaseURL)WindowsDesktop/</WinFormsAndWpfSharedFxRootUrl>
       <CoreSetupDownloadDirectory>$(IntermediateDirectory)/coreSetupDownload/$(MicrosoftNETCoreAppRuntimePackageVersion)</CoreSetupDownloadDirectory>
       <CombinedSharedHostAndFrameworkArchive>$(CoreSetupDownloadDirectory)/combinedSharedHostAndFrameworkArchive$(ArchiveExtension)</CombinedSharedHostAndFrameworkArchive>
@@ -129,7 +129,7 @@
     <ItemGroup>
       <BundledLayoutComponent Include="CombinedSharedHostAndFrameworkArchive">
         <BaseUrl>$(CoreSetupRootUrl)$(CoreSetupBlobVersion)</BaseUrl>
-        <BaseUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(CoreSetupRootUrl)</BaseUrl>
+        <BaseUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(CoreSetupRootUrl)</BaseUrl>
         <DownloadFileName>$(CombinedFrameworkHostArchiveFileName)</DownloadFileName>
         <RelativeLayoutPath></RelativeLayoutPath>
       </BundledLayoutComponent>
@@ -261,7 +261,7 @@
 
       <BundledLayoutComponent Include="ToolsetArchive">
         <BaseUrl>$(PublicBaseURL)Sdk/$(MicrosoftDotnetToolsetInternalPackageVersion)</BaseUrl>
-        <BaseUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(PublicBaseURL)</BaseUrl>
+        <BaseUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(PublicBaseURL)</BaseUrl>
         <DownloadFileName>dotnet-toolset-internal-$(MicrosoftDotnetToolsetInternalPackageVersion).zip</DownloadFileName>
         <RelativeLayoutPath>sdk/$(Version)</RelativeLayoutPath>
       </BundledLayoutComponent>
@@ -270,7 +270,7 @@
     <ItemGroup Condition=" '$(IncludeAspNetCoreRuntime)' != 'false' ">
       <BundledLayoutComponent Include="DownloadedAspNetCoreSharedFxArchiveFile">
         <BaseUrl>$(AspNetCoreSharedFxRootUrl)$(AspNetCoreBlobVersion)</BaseUrl>
-        <BaseUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(AspNetCoreSharedFxRootUrl)</BaseUrl>
+        <BaseUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(AspNetCoreSharedFxRootUrl)</BaseUrl>
         <DownloadFileName>$(AspNetCoreSharedFxArchiveFileName)</DownloadFileName>
         <RelativeLayoutPath></RelativeLayoutPath>
         <DirectoriesToCopy>shared/Microsoft.AspNetCore.App</DirectoriesToCopy>
@@ -312,7 +312,7 @@
       <BundledInstallerComponent Include="AspNetCoreSharedFxBaseRuntimeVersionFile"
                                  Condition="!$(Architecture.StartsWith('arm')) or '$(Rid)' == 'win-arm64' or '$(Rid)' == 'osx-arm64'">
         <BaseUrl>$(AspNetCoreSharedFxRootUrl)$(AspNetCoreBlobVersion)</BaseUrl>
-        <BaseUrl Condition=" '$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product' ">$(AspNetCoreSharedFxRootUrl)</BaseUrl>
+        <BaseUrl Condition=" '$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product' ">$(AspNetCoreSharedFxRootUrl)</BaseUrl>
         <DownloadFileName>$(AspNetCoreSharedFxBaseRuntimeVersionFileName)</DownloadFileName>
       </BundledInstallerComponent>
     </ItemGroup>
@@ -380,7 +380,7 @@
             For example, the dotnetbuilds uri for 'file:///vmr/dotnet2/artifacts/obj/x64/Release/blob-feed/assets//aspnetcore_base_runtime.version'
             would end up 'https://dotnetbuilds.blob.core.windows.net/public//dotnet-runtime-8.0.0-rc.1.23381.3-centos.8-x64.tar.gz'. This is
             missing the runtime version number directory. -->
-    <ItemGroup Condition="'$(DotNetBuildFromSourceFlavor)' != 'Product'">
+    <ItemGroup Condition="'$(IGNOREFlavor)' != 'Product'">
       <UrisToDownload Include="$([System.String]::Copy('%(ComponentToDownload.BaseUrl)').Replace($(PublicBaseURL), 'https://dotnetbuilds.blob.core.windows.net/public/'))/%(ComponentToDownload.DownloadFileName)"
                       Condition="'%(ComponentToDownload.ShouldDownload)' == 'true'">
         <ShouldDownload>%(ComponentToDownload.ShouldDownload)</ShouldDownload>
@@ -505,7 +505,7 @@
   </Target>
 
   <Target Name="LayoutWorkloadUserLocalMarker"
-          Condition="'$(DotNetBuildFromSource)' == 'true'">
+          Condition="'$(IGNORE)' == 'true'">
     <WriteLinesToFile File="$(RedistLayoutPath)metadata/workloads/$(CliProductBandVersion)00/userlocal"
                       Overwrite="true" />
   </Target>

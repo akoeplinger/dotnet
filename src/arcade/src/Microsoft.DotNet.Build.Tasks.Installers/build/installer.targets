@@ -25,7 +25,7 @@
   -->
   <Target Name="SetLastReleasedVersionForSourceBuild"
           Condition="
-            '$(DotNetBuildFromSource)' == 'true' and
+            '$(IGNORE)' == 'true' and
             '$(SkipSetLastReleasedVersionForSourceBuild)' != 'true'"
           BeforeTargets="GetProductVersions"
           DependsOnTargets="_GetCurrentProjectServicingConfiguration">

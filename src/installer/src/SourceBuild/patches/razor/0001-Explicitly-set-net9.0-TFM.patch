@@ -14,7 +14,7 @@ index bf6754f23..d76f449be 100644
 +++ b/Directory.Build.props
 @@ -66,7 +66,7 @@
      -->
-     <When Condition="'$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product'">
+     <When Condition="'$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product'">
        <PropertyGroup>
 -        <DefaultNetCoreTargetFramework>$(NetCurrent)</DefaultNetCoreTargetFramework>
 +        <DefaultNetCoreTargetFramework>net9.0</DefaultNetCoreTargetFramework>

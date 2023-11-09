@@ -72,8 +72,9 @@
     <PropertyGroup>
       <!-- Track that this is the inner build to prevent infinite recursion. -->
       <InnerBuildArgs>$(InnerBuildArgs) /p:ArcadeInnerBuildFromSource=true</InnerBuildArgs>
-      <!-- Set DotNetBuildFromSource to avoid publishing. -->
-      <InnerBuildArgs>$(InnerBuildArgs) /p:DotNetBuildFromSource=true</InnerBuildArgs>
+      <!-- Set IGNORE to avoid publishing. -->
+      <!-- TODO: check if this is needed -->
+      <!--<InnerBuildArgs>$(InnerBuildArgs) /p:IGNORE=true</InnerBuildArgs>-->
       <!-- Use a fresh clone of the repo so that source-build modifications are isolated. -->
       <InnerBuildArgs>$(InnerBuildArgs) /p:RepoRoot=$(InnerSourceBuildRepoRoot)</InnerBuildArgs>
       <!-- Override the artifacts dir to cleanly separate the inner build from outer build. -->

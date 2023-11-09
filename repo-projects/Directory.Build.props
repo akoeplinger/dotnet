@@ -59,8 +59,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EnvironmentVariables Include="DotNetBuildFromSource=true" />
-    <EnvironmentVariables Include="DotNetBuildFromSourceFlavor=Product" />
+    <EnvironmentVariables Include="DotNetBuildVertical=true" />
+    <EnvironmentVariables Include="DotNetBuildVerticalFlavor=Product" />
     <EnvironmentVariables Include="DotNetPackageVersionPropsPath=$(PackageVersionPropsPath)" />
     <EnvironmentVariables Include="DotNetRestorePackagesPath=$(PackagesDir)" />
     <EnvironmentVariables Include="DotNetBuildOffline=true" />

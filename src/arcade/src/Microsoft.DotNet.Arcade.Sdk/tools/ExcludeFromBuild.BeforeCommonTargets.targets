@@ -35,7 +35,7 @@
   -->
   <PropertyGroup>
     <_SuppressAllTargets>false</_SuppressAllTargets>
-    <_SuppressAllTargets Condition="'$(DotNetBuildFromSource)' == 'true' and '$(ExcludeFromSourceBuild)' == 'true'">true</_SuppressAllTargets>
+    <_SuppressAllTargets Condition="'$(IGNORE)' == 'true' and '$(ExcludeFromSourceBuild)' == 'true'">true</_SuppressAllTargets>
     <_SuppressAllTargets Condition="'$(ExcludeFromBuild)' == 'true'">true</_SuppressAllTargets>
 
     <!-- If excluding, then disable a restore warning, which will fire on newer SDKs, as well as set the NuGetRestoreTargets property to empty,

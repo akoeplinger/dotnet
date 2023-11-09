@@ -556,7 +556,7 @@ This package is an internal implementation of the .NET Core SDK and is not meant
   Targets related to creating .zip/.tar.gz
   #########################################
   -->
-  <Target Name="_DownloadAndExtractDotNetRuntime" Condition="'$(DotNetBuildFromSource)' != 'true'">
+  <Target Name="_DownloadAndExtractDotNetRuntime" Condition="'$(IGNORE)' != 'true'">
     <!-- Try various places to find the runtime. It's either released (use official version),
          public but un-released (use dotnetbuilds/public), or internal and unreleased (use dotnetbuilds/internal) -->
     <ItemGroup>
@@ -696,7 +696,7 @@ This package is an internal implementation of the .NET Core SDK and is not meant
     needed in source build.
   -->
   <Target Name="_InstallFrameworkIntoLocalDotNet"
-          Condition="'$(DotNetBuildFromSource)' != 'true'"
+          Condition="'$(IGNORE)' != 'true'"
           Inputs="@(SharedFxContent)"
           Outputs="@(SharedFxContent->'$(LocalInstallationOutputPath)%(FileName)%(Extension)')">
 

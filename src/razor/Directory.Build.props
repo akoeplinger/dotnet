@@ -24,7 +24,7 @@
     <GenerateResxSourceEmitFormatMethods>true</GenerateResxSourceEmitFormatMethods>
     <ExcludeFromSourceBuild Condition="'$(IsUnitTestProject)' == 'true'">true</ExcludeFromSourceBuild>
     <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
-    <EnableWindowsTargeting Condition="'$(DotNetBuildFromSource)' != 'true'">true</EnableWindowsTargeting>
+    <EnableWindowsTargeting Condition="'$(IGNORE)' != 'true'">true</EnableWindowsTargeting>
 
     <SharedSourceRoot>$(MSBuildThisFileDirectory)src\Shared\</SharedSourceRoot>
 
@@ -53,7 +53,7 @@
         necessary as the output of this leg is used in other CI source build legs. Those could be
         targeting NetCurrent or NetPrevious hence we must produce both.
     -->
-    <When Condition="'$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' != 'Product'">
+    <When Condition="'$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' != 'Product'">
       <PropertyGroup>
         <DefaultNetCoreTargetFramework>$(NetCurrent)</DefaultNetCoreTargetFramework>
         <DefaultNetCoreTargetFrameworks>$(DefaultNetCoreTargetFramework);$(NetPrevious)</DefaultNetCoreTargetFrameworks>
@@ -63,7 +63,7 @@
     <!--
       2. Source build the product: this is the all up build of the product which needs only NetCurrent
     -->
-    <When Condition="'$(DotNetBuildFromSource)' == 'true' AND '$(DotNetBuildFromSourceFlavor)' == 'Product'">
+    <When Condition="'$(IGNORE)' == 'true' AND '$(IGNOREFlavor)' == 'Product'">
       <PropertyGroup>
         <DefaultNetCoreTargetFramework>net9.0</DefaultNetCoreTargetFramework>
         <DefaultNetCoreTargetFrameworks>$(DefaultNetCoreTargetFramework)</DefaultNetCoreTargetFrameworks>

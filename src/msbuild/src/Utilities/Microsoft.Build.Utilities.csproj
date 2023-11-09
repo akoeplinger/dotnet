@@ -27,7 +27,7 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' != '.NETStandard' and '$(DotNetBuildFromSource)' != 'true'">
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' != '.NETStandard' and '$(IGNORE)' != 'true'">
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" />
   </ItemGroup>
 

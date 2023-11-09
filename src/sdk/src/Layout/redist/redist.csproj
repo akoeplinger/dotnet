@@ -22,7 +22,7 @@
   <Import Project="targets\PublishDotnetWatch.targets" />
   <Import Project="targets\GenerateLayout.targets" />
   <Import Project="targets\GenerateArchive.targets" />
-  <Import Project="targets\OverlaySdkOnLKG.targets" Condition="'$(DotNetBuildFromSource)' != 'true'" />
+  <Import Project="targets\OverlaySdkOnLKG.targets" Condition="'$(IGNORE)' != 'true'" />
   <Import Project="targets\MSBuildExtensions.targets" />
 
   <ItemGroup>
@@ -33,7 +33,7 @@
     <PackageReference Include="Microsoft.Build.NuGetSdkResolver" />
     <PackageReference Include="Microsoft.TestPlatform.CLI" ExcludeAssets="All" />
     <PackageReference Include="Microsoft.TestPlatform.Build" />
-    <PackageReference Condition=" '$(DotNetBuildFromSource)' != 'true' " Include="NuGet.Localization" />
+    <PackageReference Condition=" '$(IGNORE)' != 'true' " Include="NuGet.Localization" />
     <PackageReference Include="NuGet.ProjectModel" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" ExcludeAssets="All" GeneratePathProperty="true"/>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" ExcludeAssets="All" GeneratePathProperty="true"/>

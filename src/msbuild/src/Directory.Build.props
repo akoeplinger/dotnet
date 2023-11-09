@@ -31,7 +31,7 @@
 
     <!-- Defaults for target frameworks and architecture -->
     <LibraryTargetFrameworks>$(FullFrameworkTFM);$(LatestDotNetCoreForMSBuild);netstandard2.0</LibraryTargetFrameworks>
-    <LibraryTargetFrameworks Condition="'$(DotNetBuildFromSource)' == 'true'">$(LatestDotNetCoreForMSBuild);netstandard2.0</LibraryTargetFrameworks>
+    <LibraryTargetFrameworks Condition="'$(IGNORE)' == 'true'">$(LatestDotNetCoreForMSBuild);netstandard2.0</LibraryTargetFrameworks>
     <LibraryTargetFrameworks Condition="'$(MonoBuild)'=='true'">$(FullFrameworkTFM);netstandard2.0</LibraryTargetFrameworks>
     <PlatformTarget>AnyCPU</PlatformTarget>
 
